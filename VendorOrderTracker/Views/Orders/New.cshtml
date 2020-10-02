@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+  <br>
+  <h1>Add a new vendor to @Model.Name</h1>
+  <form action="/vendors/@Model.Id/musics" method="post">
+    <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
+    <label for="vendorTitle">Vendor Title</label>
+    <input id="vendorTitle" name="vendorTitle" type="text">
+    <label for="vendorDescription">Price</label>
+    <input id="vendorDescription" name="vendorDescription" type="text">
+    <label for="vendorPrice">Date</label>
+    <input id="vendorPrice" name="vendorPrice" type="text">
+    <button type='submit'>Add Vendor</button>
+  </form>
+</div>
