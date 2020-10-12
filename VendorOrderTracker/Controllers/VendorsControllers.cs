@@ -39,9 +39,9 @@ namespace VendorOrderTracker.Controllers
       return View(model);
     }
 
-// This one creates new orders within a given Category, not new vendors:
+
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string vendorTitle, string vendorDescription, string date, string orderVendor)
+    public ActionResult Create(int vendorId, string vendorTitle, string vendorDescription, DateTime date, string orderVendor)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
