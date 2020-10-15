@@ -20,7 +20,7 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
     [TestMethod]
-    public void GetDescription_ReturnsDescription_String()
+    public void GetTitle_ReturnsTitle_String()
     {
       //Arrange
        Order newOrder = new Order("test Title", "test description", 5,  12);
@@ -30,6 +30,22 @@ namespace VendorOrderTracker.Tests
 
       //Assert
       Assert.AreEqual("test Title", result);
+    }
+
+    [TestMethod]
+    public void SetDescription_SetDescription_String()
+    {
+      //Arrange
+      string description = "Walk the dog.";
+      Order newOrder = new Order(description);
+
+      //Act
+      string updatedDescription = "Do the dishes";
+      newOrder.Description = updatedDescription;
+      string result = newOrder.Description;
+
+      //Assert
+      Assert.AreEqual(updatedDescription, result);
     }
 
   }
