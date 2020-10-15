@@ -19,7 +19,18 @@ namespace VendorOrderTracker.Tests
       Order newOrder = new Order("test Title", "test description", 5,  12);
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
-    
+    [TestMethod]
+    public void GetDescription_ReturnsDescription_String()
+    {
+      //Arrange
+       Order newOrder = new Order("test Title", "test description", 5,  12);
+
+      //Act
+      string result = newOrder.Title;
+
+      //Assert
+      Assert.AreEqual("test Title", result);
+    }
 
   }
 }
