@@ -59,6 +59,22 @@ namespace VendorOrderTracker.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
+    [TestMethod]
+    public void GetAll_ReturnsOrders_OrderList()
+    {
+      //Arrange
+      Order newOrder1 = new Order("test Title", "test description", 5,  12);
+      Order newOrder2 = new Order("test Title", "test description", 5,  12);
+    
+      List<Order> newList = new List<Order> { newOrder1, newOrder2 };
+
+      //Act
+      List<Order> result = Order.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
   
 
   }
