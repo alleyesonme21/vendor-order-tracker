@@ -75,6 +75,21 @@ namespace VendorOrderTracker.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
+    [TestMethod]
+    public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      //Arrange
+       Order newOrder1 = new Order("test Title", "test description", 5,  12);
+       Order newOrder2 = new Order("test address", "test guitar", 2, 6);
+       Order newOrder3 = new Order("test piano", "test bass", 4,  20);
+
+      //Act
+      int result = newOrder3.Id;
+
+      //Assert
+      Assert.AreEqual(3, result);
+    }
+
   
 
   }
