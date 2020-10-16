@@ -20,6 +20,19 @@ namespace VendorOrderTracker.Tests
       Vendor newVendor = new Vendor("test name", "test description", 123);
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
+    [TestMethod]
+    public void GetPhone_ReturnsPhone_Int()
+    {
+      //Arrange
+      Vendor newVendor = new Vendor("test name", "test description", 123);
+
+      //Act
+      int result = newVendor.Phone;
+
+      //Assert
+      Assert.AreEqual(123, result);
+    }
+
 
     
   }
