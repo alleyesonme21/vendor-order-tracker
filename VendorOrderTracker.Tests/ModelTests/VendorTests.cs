@@ -60,6 +60,22 @@ namespace VendorOrderTracker.Tests
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+      //Arrange
+      Vendor newVendor1 = new Vendor("test name", "test description", 123);
+      Vendor newVendor2 = new Vendor("test name", "test description", 123);
+      Vendor newVendor3 = new Vendor("test name", "test description", 123);
+      Vendor newVendor4 = new Vendor("test name", "test description", 123);
+
+      //Act
+      Vendor result = Vendor.Find(4);
+
+      //Assert
+      Assert.AreEqual(newVendor4, result);
+    }
+
 
 
 
