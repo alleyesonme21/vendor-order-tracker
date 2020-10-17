@@ -3,15 +3,17 @@
 }
 <div class="container">
   <br>
-  <h1>Add a new vendor to @Model.Name</h1>
-  <form action="/vendors/@Model.Id/musics" method="post">
+  <h1>Add a new Order to @Model.Name</h1>
+  <form action="/vendors/@Model.Id/orders" method="post">
     <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
-    <label for="vendorTitle">Vendor Title</label>
-    <input id="vendorTitle" name="vendorTitle" type="text">
-    <label for="vendorDescription">Price</label>
-    <input id="vendorDescription" name="vendorDescription" type="text">
-    <label for="vendorPrice">Date</label>
-    <input id="vendorPrice" name="vendorPrice" type="text">
-    <button type='submit'>Add Vendor</button>
+    <label for="title">Title</label>
+    <input id="title" name="title" type="text">
+    <label for="description">Description</label>
+    <input id="description" name="description" type="text">
+    <label for="price">Price:</label>
+    <input id="price" name="price" type="text">
+    <label for="orderDate">Date:</label>
+    <input id="orderDate" name="orderDate" type="text">
+    <button type='submit'>Add Order</button>
   </form>
 </div>
