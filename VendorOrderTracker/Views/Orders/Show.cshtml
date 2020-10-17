@@ -1,14 +1,15 @@
 @{
   Layout = "_Layout";
 }
-<div class="container">
-  <br>
-  <h1>Order Details: </h1>
-  <h2>Title: @Model["order"].Title</h2>
-  <h2>Description: @Model["order"].Description</h2>
-  <h2>Price: @Model["order"].Price<h2>
-  <h2>Vendor: @Model["vendor"].Name</h2>
-  <h2>category: @Model["order"].OrderCategory</h2>
-  <p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add another Vendor</a></p>
-  <p><a href='/vendors'>View all vendors</a></p>
-</div>
+
+<h1>Vendor Order Details: </h1>
+
+<h2>Name: @Model["vendor"].Name</h2>
+<h3>Title: @Model["order"].Title</h3>
+<h3>Description: @Model["order"].Description</h3>
+<h3>Price: @Model["order"].Price</h3>
+<h3>Date: @Model["order"].Date</h3>
+
+
+<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add another Order</a></p>
+<p><a href='/vendors'>View all vendors</a></p>

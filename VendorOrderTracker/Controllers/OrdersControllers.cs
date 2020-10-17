@@ -6,14 +6,13 @@ namespace VendorOrderTracker.Controllers
 {
   public class OrdersController : Controller
   {
-
-    [HttpPost("/orders/delete")]
-    public ActionResult DeleteAll()
+    [HttpGet("/vendors/{vendorId}/orders/new")]
+    public ActionResult New(int vendorId)
     {
-      Order.ClearAll();
-      return View();
+      Vendor vendor = Vendor.Find(vendorId);
+      return View(vendor);
     }
-    
+
     [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
     public ActionResult Show(int vendorId, int orderId)
     {
@@ -25,11 +24,11 @@ namespace VendorOrderTracker.Controllers
       return View(model);
     }
 
-    [HttpGet("/vendors/{vendorId}/orders/new")]
-    public ActionResult New(int vendorId)
+    [HttpPost("/orders/delete")]
+    public ActionResult DeleteAll()
     {
-      Vendor vendor = Vendor.Find(vendorId);
-      return View(vendor);
+      Order.ClearAll();
+      return View();
     }
   }
 }
