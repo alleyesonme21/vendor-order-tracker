@@ -38,7 +38,6 @@ namespace VendorOrderTracker.Controllers
       return View(model);
     }
 
-
     [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string title, string description, int price, string orderDate)
     {
@@ -51,6 +50,7 @@ namespace VendorOrderTracker.Controllers
       model.Add("vendor", selectedVendor);
       return View("Show", model);
     }
+    
     [HttpPost("/vendors/{vendorId}")]
     public ActionResult Patch(int vendorId, string vendorName, string vendorDescription, string phoneNumber)
     {
