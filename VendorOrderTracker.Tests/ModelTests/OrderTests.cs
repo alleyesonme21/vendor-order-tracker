@@ -16,14 +16,14 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("test Title", "test description", 5,  12);
+      Order newOrder = new Order("test Title", "test description", 5, "test date");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
     [TestMethod]
     public void GetTitle_ReturnsTitle_String()
     {
       //Arrange
-       Order newOrder = new Order("test Title", "test description", 5,  12);
+      Order newOrder = new Order("test Title", "test description", 5, "test date");
 
       //Act
       string result = newOrder.Title;
@@ -35,7 +35,7 @@ namespace VendorOrderTracker.Tests
     public void SetPrice_SetPrice_String()
     {
       //Arrange
-      Order newOrder = new Order("test Title", "test description", 5,  12);
+      Order newOrder = new Order("test Title", "test description", 5,  "test date");
 
       //Act
       int updatedPrice = 10;
@@ -63,8 +63,8 @@ namespace VendorOrderTracker.Tests
     public void GetAll_ReturnsOrders_OrderList()
     {
       //Arrange
-      Order newOrder1 = new Order("test Title", "test description", 5,  12);
-      Order newOrder2 = new Order("test Title", "test description", 5,  12);
+      Order newOrder1 = new Order("test Title", "test description", 5,  "test date");
+      Order newOrder2 = new Order("test Title", "test description", 5,  "test date");
     
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
 
@@ -79,9 +79,9 @@ namespace VendorOrderTracker.Tests
     public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int()
     {
       //Arrange
-       Order newOrder1 = new Order("test Title", "test description", 5,  12);
-       Order newOrder2 = new Order("test address", "test guitar", 2, 6);
-       Order newOrder3 = new Order("test piano", "test bass", 4,  20);
+      Order newOrder1 = new Order("test Title", "test description", 5, "test date");
+      Order newOrder2 = new Order("test address", "test guitar", 2, "test date");
+      Order newOrder3 = new Order("test piano", "test bass", 4, "test date");
 
       //Act
       int result = newOrder3.Id;
@@ -89,16 +89,15 @@ namespace VendorOrderTracker.Tests
       //Assert
       Assert.AreEqual(3, result);
     }
-     [TestMethod]
+    [TestMethod]
     public void Find_ReturnsCorrectOrder_Order()
     {
       //Arrange
-       Order newOrder1 = new Order("test Title", "test description", 5,  12);
-       Order newOrder2 = new Order("test address", "test guitar", 2, 6);
-       Order newOrder3 = new Order("test piano", "test bass", 4,  20);
+      Order newOrder1 = new Order("test Title", "test description", 5, "test date");
+      Order newOrder2 = new Order("test address", "test guitar", 2, "test date");
+      Order newOrder3 = new Order("test piano", "test bass", 4,  "test date");
       //Act
       Order result = Order.Find(1);
-
       //Assert
       Assert.AreEqual(newOrder1, result);
     }
