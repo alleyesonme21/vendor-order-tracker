@@ -80,9 +80,9 @@ namespace VendorOrderTracker.Tests
     public void AddOrder_AssociatesOrderWithVendor_OrderList()
     {
       //Arrange
-      Order newOrder = new Order("test Title", "test description", 5,  12);
+      Order newOrder = new Order("test Title", "test description", 5,  "test date");
       List<Order> newList = new List<Order> { newOrder };
-       Vendor newVendor = new Vendor("test name", "test description", 123);
+      Vendor newVendor = new Vendor("test name", "test description", 123);
       newVendor.AddOrder(newOrder);
 
       //Act
@@ -91,12 +91,5 @@ namespace VendorOrderTracker.Tests
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
-    
-
-
-
-
-
-    
   }
 }
