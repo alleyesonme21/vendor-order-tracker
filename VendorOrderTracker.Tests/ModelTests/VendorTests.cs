@@ -17,27 +17,27 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("test name", "test description", 123);
+      Vendor newVendor = new Vendor("test name", "test description", "test phone");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
     [TestMethod]
     public void GetPhone_ReturnsPhone_Int()
     {
       //Arrange
-      Vendor newVendor = new Vendor("test name", "test description", 123);
+      Vendor newVendor = new Vendor("test name", "test description", "test phone");
 
       //Act
-      int result = newVendor.Phone;
+     string result = newVendor.Phone;
 
       //Assert
-      Assert.AreEqual(123, result);
+      Assert.AreEqual("test phone", result);
     }
 
     [TestMethod]
     public void GetId_ReturnsVendorId_Int()
     {
       //Arrange
-      Vendor newVendor = new Vendor("test name", "test description", 123);
+      Vendor newVendor = new Vendor("test name", "test description", "test phone");
 
       //Act
       int result = newVendor.Id;
@@ -46,12 +46,12 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(1, result);
     }
 
-     [TestMethod]
+    [TestMethod]
     public void GetAll_ReturnsAllVendorObjects_VendorList()
     {
       //Arrange
-      Vendor newVendor = new Vendor("test name", "test description", 123);
-      Vendor newVendor1 = new Vendor("test Edu", "test bouyon", 1234);
+      Vendor newVendor = new Vendor("test name", "test description", "test phone");
+      Vendor newVendor1 = new Vendor("test Edu", "test bouyon", "test numero");
       List<Vendor> newList = new List<Vendor> { newVendor, newVendor1 };
 
       //Act
@@ -64,10 +64,10 @@ namespace VendorOrderTracker.Tests
     public void Find_ReturnsCorrectVendor_Vendor()
     {
       //Arrange
-      Vendor newVendor1 = new Vendor("test name", "test description", 123);
-      Vendor newVendor2 = new Vendor("test name", "test description", 123);
-      Vendor newVendor3 = new Vendor("test name", "test description", 123);
-      Vendor newVendor4 = new Vendor("test name", "test description", 123);
+      Vendor newVendor1 = new Vendor("test name", "test description", "test phone");
+      Vendor newVendor2 = new Vendor("test name", "test description", "test phone");
+      Vendor newVendor3 = new Vendor("test name", "test description", "test phone");
+      Vendor newVendor4 = new Vendor("test name", "test description", "test phone");
 
       //Act
       Vendor result = Vendor.Find(4);
@@ -82,7 +82,7 @@ namespace VendorOrderTracker.Tests
       //Arrange
       Order newOrder = new Order("test Title", "test description", 5,  "test date");
       List<Order> newList = new List<Order> { newOrder };
-      Vendor newVendor = new Vendor("test name", "test description", 123);
+      Vendor newVendor = new Vendor("test name", "test description", "test phone");
       newVendor.AddOrder(newOrder);
 
       //Act
