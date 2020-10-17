@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System;
 using Microsoft.AspNetCore.Mvc;
 using VendorOrderTracker.Models;
 
@@ -22,17 +21,17 @@ namespace VendorOrderTracker.Controllers
     }
 
     [HttpPost("/vendors")]
-    public ActionResult Create(string vendorName)
+    public ActionResult Create(string vendorName,  string vendorDescription, string phoneNumber)
     {
-      Vendor newVendor = new Vendor(vendorName);
+      Vendor newVendor = new Vendor(vendorName, vendorDescription,phoneNumber);
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/vendors/{id}")]
-    public ActionResult Show(int id)
+    [HttpGet("/vendors/{vendorId}")]
+    public ActionResult Show(int vendorId)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Vendor selectedVendor = Vendor.Find(id);
+      Vendor selectedVendor = Vendor.Find(vendorId);
       List<Order> vendorOrders = selectedVendor.Orders;
       model.Add("vendor", selectedVendor);
       model.Add("orders", vendorOrders);
@@ -41,17 +40,25 @@ namespace VendorOrderTracker.Controllers
 
 
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string vendorTitle, string vendorDescription, DateTime date, string orderVendor)
+    public ActionResult Create(int vendorId, string title, string description, int price, string orderDate)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Vendor foundVendor = Vendor.Find(vendorId);
-      Order newOrder = new Order(vendorTitle, vendorDescription, date, orderVendor);
-      foundVendor.AddOrder(newOrder);
-      List<Order> vendorOrders = foundVendor.Orders;
+      Vendor selectedVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(title, description, price, orderDate);
+      selectedVendor.AddOrder(newOrder);
+      List<Order> vendorOrders = selectedVendor.Orders;
       model.Add("orders", vendorOrders);
-      model.Add("vendor", foundVendor);
+      model.Add("vendor", selectedVendor);
       return View("Show", model);
     }
-    
+    [HttpPost("/vendors/{vendorId}")]
+    public ActionResult Patch(int vendorId, string vendorName, string vendorDescription, string phoneNumber)
+    {
+      Vendor selectedVendor = Vendor.Find(vendorId);
+      selectedVendor.Name = vendorName;
+      selectedVendor.Description = vendorDescription;
+      selectedVendor.Phone = phoneNumber;
+      return RedirectToAction("Show");
+    }
   }
 }
